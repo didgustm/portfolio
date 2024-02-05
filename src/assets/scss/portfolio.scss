@@ -1,0 +1,27 @@
+@use './common/variables' as var;
+
+.portfolio{
+    background:#f3f3f3;
+    .top{
+        @include var.flex(space-between, flex-end)
+    }
+    .navi{
+        @include var.flex(flex-end, center);
+        gap:2rem;
+        filter:brightness(0) saturate(100%) invert(45%) sepia(75%) saturate(4614%) hue-rotate(348deg) brightness(93%) contrast(95%);
+        .btn_prev{
+            transform:rotate(0.5turn)
+        }
+        .swiper-button-disabled{
+            opacity:0.3
+        }
+    }
+    @import './grid.scss';
+    @include var.custom(400px){
+        .navi{
+            img{
+                width:80%
+            }
+        }
+    }
+}

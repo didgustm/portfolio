@@ -1,0 +1,27 @@
+@use './common/variables' as var;
+
+.workTop{
+    .caption{
+        justify-content:center;
+    }
+    .title{
+        @include var.fontWeight(800);
+        background:radial-gradient(circle, var.$theme 0%, #ffeeea 100%);
+        background-clip:text;
+        color:transparent;
+        font-size:10rem;
+        animation:animatedGradient 3s ease infinite alternate
+    }
+    @keyframes animatedGradient {
+        from {
+            background-size: 70%;
+        }
+        to {
+            background-size: 180%;
+        }
+    }
+}
+.work{
+    background:#f7f7f7;
+    @import './grid.scss';
+}

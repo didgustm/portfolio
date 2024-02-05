@@ -1,0 +1,63 @@
+@use './common/variables' as var;
+
+/**** Visual ****/
+.visual{
+    --color:#fff;
+    position:relative;
+    background:#272727;
+    overflow:hidden;
+    z-index:1;
+    .inner{
+        padding:{
+            top:25rem;
+            bottom:21rem
+        }
+    }
+    .caption{
+        font-size:2rem;
+        .line{
+            width:10rem;
+            height:2px
+        }
+    }
+    .title{
+        font-size:6rem;
+        line-height:1.15;
+        margin-top:6rem;
+        color:#fff
+    }
+    canvas{
+        position:absolute;
+        top:0;
+        right:0;
+        z-index:-1
+    }
+    @include var.custom(1000px){
+        .inner{
+            padding:{
+                top:30rem;
+                bottom:25rem
+            }
+        }
+    }
+    @include var.custom(var.$mobile){
+        // min-height:100vh;
+        .inner{
+            padding:{
+                top:45rem;
+                bottom:40rem
+            }
+        }
+        .caption{
+            .line{
+                height:1px
+            }
+        }
+    }
+    @include var.custom(320px){
+        .title{
+            font-size:5.6rem;
+            white-space:nowrap
+        }
+    }
+}

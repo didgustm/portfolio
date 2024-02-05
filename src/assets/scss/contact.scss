@@ -1,0 +1,38 @@
+@use './common/variables' as var;
+
+.contact{
+    .contents{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:3rem 0
+    }
+    .icon{
+        display:block;
+        img{
+            filter: brightness(0) saturate(100%) invert(45%) sepia(75%) saturate(4614%) hue-rotate(348deg) brightness(93%) contrast(95%);
+        }
+    }
+    dt{
+        font-size:2.4rem;
+        @include var.fontWeight(500);
+        margin:1.5rem 0 1rem
+    }
+    dd{
+        font-size:1.8rem;
+        line-height:1.35;
+        word-break:break-all;
+        @include var.fontWeight(300);
+        a:hover{
+            color:var.$theme;
+            text-decoration:underline
+        }
+    }
+    @include var.custom(500px){
+        dt{
+            font-size:3rem
+        }
+        .icon{
+            width:8rem
+        }
+    }
+}

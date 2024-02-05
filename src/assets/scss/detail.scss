@@ -1,0 +1,141 @@
+@use './common/variables' as var;
+
+.detail{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:#fff;
+    overflow:auto;
+    z-index:100;
+    .close{
+        position:absolute;
+        top:3rem;
+        right:3rem;
+        z-index:1
+    }
+    .subTop{
+        position:sticky;
+        top:0;
+        text-align:center;
+        z-index:-1;
+        .title{
+            font-size:7rem;
+            letter-spacing:-0.2rem;
+            line-height:1.2;
+            @include var.fontWeight(550)
+        }
+    }
+    .descript{
+        font-size:2rem;
+    }
+    .url{
+        display:inline-block;
+        font-size:1.8rem;
+        line-height:1.35;
+        margin:2rem 0;
+        color:#616161;
+        &:hover{
+            color:var.$theme;
+            text-decoration:underline
+        }
+    }
+    .category{
+        @include var.flex(center);
+        font-size:1.4rem;
+        color:#696969;
+        @include var.fontWeight(500);
+        span{
+            margin:0 1rem
+        }
+    }
+    @include var.custom(var.$mobile){
+        .title{
+            font-size:5.5rem
+        }
+    }
+    .view{
+        position:relative;
+        background:#fff;
+        padding:0 1.6rem;
+        z-index:2;
+        .inner{
+            width:100%;
+            max-width:none;
+            border-radius:3rem 3rem 0 0;
+            background:#f7f7f7
+        }
+        .view_img{
+            max-width:1920px;
+            padding:0 10rem;
+            text-align:center;
+            margin:0 auto;
+            // opacity:0;
+            // transform:translateY(5rem);
+            // animation:from-bottom-fade 0.8s ease 0.6s forwards
+        }
+    }
+    .btn_top{
+        position:fixed;
+        bottom:1rem;
+        right:2rem;
+        z-index:3;
+        &::before{
+            transform:scale(1);
+            opacity:0.3
+        }
+    }
+    @include var.custom(1400px){
+        .view .view_img{
+            padding:0 5rem
+        }
+    }
+    @include var.custom(var.$tablet){
+        .view .view_img{
+            padding:0
+        }
+    }
+    @include var.custom(1000px){
+        .close{
+            img{
+                width:3rem;
+                height:3rem
+            }
+        }
+        .view .inner{
+            padding:{
+                left:5rem;
+                right:5rem
+            }
+        }
+    }
+    @include var.custom(var.$mobile){
+        .subTop .inner{
+            padding:{
+                top:7rem;
+                bottom:7rem
+            }
+        }
+        .view .inner{
+            padding:5rem 3rem
+        }
+        .url{
+            color:var.$theme
+        }
+    }
+    @include var.custom(500px){
+        .descript{
+            font-size:2.4rem
+        }
+        .subTop .title{
+            font-size:8rem
+        }
+        .url{
+            font-size:2rem
+        }
+        .category{
+            font-size:1.8rem
+        }
+    }
+}

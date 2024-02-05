@@ -1,0 +1,218 @@
+@use './variables' as var;
+@import './fonts';
+@import './reset';
+
+/**** Default ****/
+html{
+    font-size: 62.5%;
+    font-family: mont, pre;
+    touch-action: manipulation;
+    overflow-x:hidden;
+    @include var.custom(var.$tablet){
+        font-size:0.85vw
+    }
+    @include var.custom(var.$mobile){
+        font-size:1.3021vw
+    }
+    @include var.custom(320px){
+        font-size:1.45vw
+    }
+}
+.forbid_scroll{
+	height:100vh;
+	overflow:hidden
+}
+body{
+    font-size: 1.6rem;
+    line-height: 1;
+    letter-spacing: -.04em;
+    word-break: keep-all;
+    color:#272727;
+    @include var.fontWeight(400)
+}
+.inner{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 4rem;
+    .contents{
+        padding-top:6rem
+    }
+    @include var.custom(var.$tablet){
+        padding:0 7rem
+    }
+    @include var.custom(var.$mobile){
+        padding:0 5rem
+    }
+}
+section .inner{
+    padding:{
+        top:10rem;
+        bottom:10rem
+    }
+    @include var.custom(500px){
+        padding:{
+            top:15rem;
+            bottom:15rem
+        }
+    }
+}
+.buttons{
+    position:relative;
+    padding:1rem 1.6rem;
+    color:#b7b7b7;
+    z-index:1;
+    &::before{
+        @include var.pseudo(100%, 100%);
+        left:0;
+        top:0;
+        border-radius:1rem;
+        background:var.$theme;
+        opacity:0;
+        transform:scale(0);
+        z-index:-1
+    }
+    &:hover{
+        color:#272727;
+        &::before{
+            opacity:1 !important;
+            transform:scale(1);
+            @include var.transitionDefault((opacity, transform), 0.3s)
+        }
+    }
+    @include var.custom(var.$mobile){
+        padding:0;
+        &::before{
+            visibility:hidden
+        }
+        &:hover{
+            color:inherit
+        }
+    }
+}
+
+.caption{
+    @include var.flex(flex-start, center);
+    gap:1rem;
+    font-size:1.8rem;
+    color:var(--color, var.$theme);
+    @include var.fontWeight(600);
+    .line{
+        width:4rem;
+        height:1px;
+        background:var(--color, var.$theme)
+    }
+    @include var.custom(500px){
+        font-size:2.2rem;
+        .line{
+            width:6rem
+        }
+    }
+}
+.title{
+    font-size:4.3rem;
+    @include var.fontWeight(700);
+    margin-top:2.5rem;
+    word-spacing:-0.1em;
+    > div{
+        line-height:1.1;
+        overflow:hidden
+    }
+    @include var.custom(500px){
+        font-size:5.5rem
+    }
+}
+
+html.lenis {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/**** Header ****/
+@import './header';
+
+/**** Footer ****/
+.footer{
+    background:#f7f7f7;
+    text-align:center;
+    p{
+        padding:5rem
+    }
+}
+
+/**** loading ****/
+.loading{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    z-index:100
+}
+.loading svg{
+    stroke-dasharray:140px;
+    stroke:var.$theme;
+}
+.loading svg{
+    animation:load_circle 2s ease infinite
+}
+@keyframes load_circle{
+    55%{stroke-dashoffset:-130px}
+    100%{transform:rotate(2turn); stroke-dashoffset:0}
+}
+
+/**** animation ****/
+*[class*=ts--]{
+    transform:translateY(102%)
+}
+*[class*=fd--]{
+    transform:translateY(5rem);
+    opacity:0
+}
+*[class*=scx--]{
+    transform:scaleX(0);
+    transform-origin:0 50%
+}
+*[class*=rt--]{
+    transform:rotateY(-80deg);
+    opacity:0
+}
+.aos.active{
+    *[class*=ts--]{
+        transform:translate(0);
+        @include var.transitionDefault(transform, 0.8s)
+    }
+    *[class*=fd--]{
+        opacity:1;
+        transform:translateY(0);
+        @include var.transitionDefault((opacity, transform), 0.8s)
+    }
+    *[class*=scx--]{
+        transform:scaleX(1);
+        @include var.transitionDefault(transform, 0.8s)
+    }
+    *[class*=rt--]{
+        opacity:1;
+        transform:rotateY(0);
+        @include var.transitionDefault((transform, opacity), 1.2s)
+    }
+    @for $i from 1 through 20{
+        *[class*=--d#{$i}]{
+            transition-delay:#{$i*0.1}s
+        }
+    }
+}
