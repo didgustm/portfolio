@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as o,i as s}from"./index.MQF-j6lW.js";const n={id:29,title:"스테이크",caption:"CPA 캠페인 수익쉐어 플랫폼",url:"https://stake-in.com/",category:"Stock",device:"PC, Mobile",size:"medium"};class r extends o{constructor(t){super(),s(this,t,null,null,e,{})}}export{r as default,n as metadata};

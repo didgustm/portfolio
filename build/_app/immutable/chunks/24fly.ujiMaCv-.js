@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as s,i}from"./index.MQF-j6lW.js";const n={id:1,title:"24플라이",caption:"가장 효율적인 이사 비교견적",url:"https://24fly.me/",category:"Life",device:"PC, Mobile",size:"medium"};class r extends s{constructor(t){super(),i(this,t,null,null,e,{})}}export{r as default,n as metadata};

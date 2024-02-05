@@ -1,0 +1,1 @@
+import{s as t}from"./scheduler.JY9BNgAg.js";import{S as a,i as l}from"./index.MQF-j6lW.js";const i={id:37,title:"A LEVEL LABS",caption:"장기렌트/오토리스 견적 플랫폼",url:"https://leaderscpa.com/merchant/alevel/",category:"Car",device:"PC, Mobile",size:"small"};class n extends a{constructor(e){super(),l(this,e,null,null,t,{})}}export{n as default,i as metadata};

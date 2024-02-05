@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as o,i as s}from"./index.MQF-j6lW.js";const n={id:21,title:"한국재무컨설팅센터",caption:"서민들을 위한 무료 재무설계",url:"https://k-finco.com/",category:"Life",device:"PC, Mobile",size:"small"};class c extends o{constructor(t){super(),s(this,t,null,null,e,{})}}export{c as default,n as metadata};

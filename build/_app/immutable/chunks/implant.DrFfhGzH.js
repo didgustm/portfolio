@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as o}from"./index.MQF-j6lW.js";const n={id:3,title:"네비게이션 임플란트",caption:"정확하고 안전한 임플란트 식립",url:"https://leaderscpa.com/merchant/coconut_implant/",category:"Life",device:"PC, Mobile",size:"small"};class c extends a{constructor(t){super(),o(this,t,null,null,e,{})}}export{c as default,n as metadata};

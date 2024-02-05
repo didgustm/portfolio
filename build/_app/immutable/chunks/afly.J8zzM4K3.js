@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as s}from"./index.MQF-j6lW.js";const r={id:23,title:"에이플라이",caption:"장기렌트/오토리스 비교견적 플랫폼",url:"https://afly.co.kr/",category:"Car",device:"PC, Mobile",size:"small"};class n extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{n as default,r as metadata};

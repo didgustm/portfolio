@@ -73,7 +73,7 @@ export const visualBall = () => {
             pointA: {x: visual.clientWidth * 0.2, y:visual.clientHeight * 0.3},
             bodyB: cross,
             length: 0,
-            render: {visible: true}
+            render: {visible: false}
         }),
         conC = Constraint.create({ 
             pointA: { x: visual.clientWidth * 0.7, y: visual.clientHeight * 0.78 },

@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as s}from"./index.MQF-j6lW.js";const i={id:11,title:"비대면원격재테크",caption:"가장 안전하고 효율적인",url:"https://leaderscpa.com/merchant/hankyung/",category:"Life",device:"PC, Mobile",size:"small"};class r extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{r as default,i as metadata};
