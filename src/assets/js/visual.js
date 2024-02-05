@@ -22,7 +22,7 @@ export const visualBall = () => {
         engine: engine,
         pixelRatio: window.devicePixelRatio,
         options: {
-            width: visual.clientWidth,
+            width: window.innerWidth,
             height: visual.clientHeight,
             wireframes: false,
             background: '#272727'
@@ -86,21 +86,6 @@ export const visualBall = () => {
     Matter.Body.rotate(boxA, Math.PI / -8);
     Matter.Body.rotate(cross, Math.PI / 8);
 
-    if(visual.clientWidth <= 1000 && !once){
-        Matter.Body.scale(triA, 0.8, 0.8);
-        Matter.Body.scale(ballB, 0.8, 0.8);
-        Matter.Body.scale(boxA, 0.8, 0.8);
-        Matter.Body.scale(cross, 0.7, 0.7);
-        particles.forEach(x => {
-            Matter.Body.scale(x, 0.8, 0.8)
-        })
-        once = true
-    }
-    if(visual.clientWidth <= 500){
-        Matter.Body.setPosition(ballB, Matter.Vector.create(visual.clientWidth * 0.3, visual.clientHeight * 0.6));
-        Matter.Body.set(conB, 'pointA', { x: visual.clientWidth * 0.3, y: visual.clientHeight * 0.6 });
-    }
-
     Composite.add(world, [ triA, ballB, boxA, conA, conB, conC, cross, conD ]);
 
     
@@ -120,7 +105,22 @@ export const visualBall = () => {
 
     particles.length = 0;
     updateParticle();
-    Composite.add(world, particles)
+    Composite.add(world, particles);
+
+    if(visual.clientWidth <= 1000 && !once){
+        Matter.Body.scale(triA, 0.8, 0.8);
+        Matter.Body.scale(ballB, 0.8, 0.8);
+        Matter.Body.scale(boxA, 0.8, 0.8);
+        Matter.Body.scale(cross, 0.7, 0.7);
+        particles.forEach(x => {
+            Matter.Body.scale(x, 0.8, 0.8);
+        })
+        once = true
+    }
+    if(visual.clientWidth <= 500){
+        Matter.Body.setPosition(ballB, Matter.Vector.create(visual.clientWidth * 0.3, visual.clientHeight * 0.6));
+        Matter.Body.set(conB, 'pointA', { x: visual.clientWidth * 0.3, y: visual.clientHeight * 0.6 });
+    }
 
     Event.on(engine, 'collisionStart', (e) => {
         const pairs = e.pairs;
@@ -151,14 +151,8 @@ export const visualBall = () => {
     });
     function onResize(visual){
         
-        render.canvas.width = visual.clientWidth;
+        render.canvas.width = window.innerWidth;
         render.canvas.height = visual.clientHeight;
-
-        render.bounds.max.x = visual.clientWidth;
-        render.bounds.max.y = visual.clientHeight;
-        render.options.width = visual.clientWidth;
-        render.options.height = visual.clientHeight;
-        Matter.Render.setPixelRatio(render, window.devicePixelRatio);
     
         Matter.Body.setPosition(triA, Matter.Vector.create(visual.clientWidth * 0.8, visual.clientHeight * 0.38));
         Matter.Body.setPosition(boxA, Matter.Vector.create(visual.clientWidth * 0.7, visual.clientHeight * 0.78));
