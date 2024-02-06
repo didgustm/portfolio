@@ -1,16 +1,3 @@
-export const observation = (arr, margin) => {
-    const io = new IntersectionObserver((entries, ob) => {
-        entries.forEach(entry => {
-            if(!entry.isIntersecting && entry.boundingClientRect.y > 0) return;
-            const { target } = entry;
-            target.classList.add('active');
-            console.log(entry)
-            ob.unobserve(target)
-        })
-    }, { rootMargin: `-${margin}px` });
-    arr.forEach(x => io.observe(x));
-}
-
 export const fetchMarkdownPosts = async () => {
     const allPostFiles = import.meta.glob('/src/routes/list/*.md'),
                 iterablePostFiles = Object.entries(allPostFiles);

@@ -38,7 +38,7 @@ export const visualBall = () => {
         label: 'static'
     }
 
-    world.gravity.y = 0.9;
+    engine.gravity.y = 0.9;
 
     let triA = Bodies.polygon(visual.clientWidth * 0.8, visual.clientHeight * 0.38, 3, 170, staticOptions),
         ballB = Bodies.circle(visual.clientWidth * 0.5, visual.clientHeight * 0.44, 110, staticOptions),
@@ -90,7 +90,7 @@ export const visualBall = () => {
 
     
     function updateParticle(){
-        for(var i = 0; i < 10; i++){
+        for(var i = 0; i < 15; i++){
             let x = Common.random(render.canvas.width * 0.4, render.canvas.width * 0.82),
                 y = Common.random(-30, 30),
                 size = Common.random(10, 20);
