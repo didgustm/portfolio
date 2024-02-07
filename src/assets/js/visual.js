@@ -1,7 +1,7 @@
 import Matter from 'matter-js';
 
 export const visualBall = () => {
-    let once = false;
+    let wh = window.innerWidth;
     let particles = [];
     const visual = document.querySelector('.visual');
     const Engine = Matter.Engine,
@@ -32,68 +32,80 @@ export const visualBall = () => {
     Render.run(render);
     Runner.run(runner, engine);
 
+    engine.gravity.y = 0.9;
     const staticOptions = {
         restitution: 0.8,
         friction: 0,
         label: 'static'
     }
 
-    engine.gravity.y = 0.9;
-
-    let triA = Bodies.polygon(visual.clientWidth * 0.8, visual.clientHeight * 0.38, 3, 170, staticOptions),
-        ballB = Bodies.circle(visual.clientWidth * 0.5, visual.clientHeight * 0.44, 110, staticOptions),
-        partA = Bodies.rectangle(0, 0, 150, 30, {
+    // Triangle
+    function triangle(w, h, width){
+        let triA = Bodies.polygon(w * 0.8, h * 0.38, 3, width, staticOptions),
+            conA = Constraint.create({ 
+                pointA: { x: w * 0.8, y: h * 0.38 },
+                bodyB: triA,
+                length: 0,
+                render: {visible: false}
+            });
+        Composite.add(world, [ triA, conA ]);
+    }
+    // Circle
+    function circle(w, h, radius){
+        let ballB = Bodies.circle(w * 0.5, h * 0.44, radius, staticOptions),
+            conB = Constraint.create({ 
+                pointA: { x: w * 0.5, y: h * 0.44 },
+                bodyB: ballB,
+                pointB: { x: -50, y: -50 },
+                length: 0,
+                stiffness: 0.001,
+                render: {visible: false}
+            });
+        Composite.add(world, [ ballB, conB ]);
+    }
+    // Cross
+    function cross(w, h, size){
+        let partA = Bodies.rectangle(w * 0.3, h * 0.3, size, size / 5, {
             label: 'cross'
         }),
-        partB = Bodies.rectangle(0, 0, 30, 150, {
+        partB = Bodies.rectangle(w * 0.3, h * 0.3, size / 5, size, {
             render: partA.render,
             label: 'cross'
         }),
-        cross = Matter.Body.create({
+        crossA = Matter.Body.create({
             parts: [partA, partB],
             restitution: 0.8,
             friction: 0
         }),
-        boxA = Bodies.rectangle(visual.clientWidth * 0.7, visual.clientHeight * 0.78, 220, 70, staticOptions),
-        conA = Constraint.create({ 
-            pointA: { x: visual.clientWidth * 0.8, y: visual.clientHeight * 0.38 },
-            bodyB: triA,
-            length: 0,
-            render: {visible: false}
-        }),
-        conB = Constraint.create({ 
-            pointA: { x: visual.clientWidth * 0.5, y: visual.clientHeight * 0.44 },
-            bodyB: ballB,
-            pointB: { x: -50, y: -50 },
-            length: 0,
-            stiffness: 0.001,
-            render: {visible: false}
-        }),
         conD = Constraint.create({
-            pointA: {x: visual.clientWidth * 0.2, y:visual.clientHeight * 0.3},
-            bodyB: cross,
+            pointA: {x: w * 0.3, y: h * 0.3},
+            bodyB: crossA,
             length: 0,
             render: {visible: false}
-        }),
+        });
+        Matter.Body.rotate(crossA, Math.PI / 8);
+        Composite.add(world, [ crossA, conD ]);
+    }
+    // Rectangle
+    function rectangle(w, h, size){
+        let boxA = Bodies.rectangle(w * 0.7, h * 0.78, size, size / 3, staticOptions),
         conC = Constraint.create({ 
-            pointA: { x: visual.clientWidth * 0.7, y: visual.clientHeight * 0.78 },
+            pointA: { x: w * 0.7, y: h * 0.78 },
             bodyB: boxA,
             length: 0,
             damping: 0.01,
             stiffness: 0.05,
             render: {visible: false}
         });
-    Matter.Body.rotate(boxA, Math.PI / -8);
-    Matter.Body.rotate(cross, Math.PI / 8);
-
-    Composite.add(world, [ triA, ballB, boxA, conA, conB, conC, cross, conD ]);
-
-    
-    function updateParticle(){
+        Matter.Body.rotate(boxA, Math.PI / -8);
+        Composite.add(world, [ boxA, conC ]);
+    }
+    // Particles
+    function updateParticle(min, max){
         for(var i = 0; i < 15; i++){
             let x = Common.random(render.canvas.width * 0.4, render.canvas.width * 0.82),
                 y = Common.random(-30, 30),
-                size = Common.random(10, 20);
+                size = Common.random(min, max);
             const p = Bodies.circle(x, y, size, {
                 restitution: 0.4,
                 friction: 0,
@@ -103,23 +115,42 @@ export const visualBall = () => {
         }
     }
 
-    particles.length = 0;
-    updateParticle();
-    Composite.add(world, particles);
+    if(window.innerWidth <= 500){
+        Composite.clear(world);
 
-    if(visual.clientWidth <= 1000 && !once){
-        Matter.Body.scale(triA, 0.8, 0.8);
-        Matter.Body.scale(ballB, 0.8, 0.8);
-        Matter.Body.scale(boxA, 0.8, 0.8);
-        Matter.Body.scale(cross, 0.7, 0.7);
-        particles.forEach(x => {
-            Matter.Body.scale(x, 0.8, 0.8);
-        })
-        once = true
-    }
-    if(visual.clientWidth <= 500){
-        Matter.Body.setPosition(ballB, Matter.Vector.create(visual.clientWidth * 0.3, visual.clientHeight * 0.6));
-        Matter.Body.set(conB, 'pointA', { x: visual.clientWidth * 0.3, y: visual.clientHeight * 0.6 });
+        triangle(visual.clientWidth, visual.clientHeight, 120);
+        circle(visual.clientWidth * 0.5, visual.clientHeight * 1.1, 70);
+        cross(visual.clientWidth, visual.clientHeight, 100);
+        rectangle(visual.clientWidth, visual.clientHeight, 150);
+
+        particles.length = 0;
+        updateParticle(6, 13);
+        Composite.add(world, particles);
+    } else if(window.innerWidth <= 1000){
+        
+        Composite.clear(world);
+
+        triangle(visual.clientWidth, visual.clientHeight, 140);
+        circle(visual.clientWidth, visual.clientHeight, 90);
+        cross(visual.clientWidth, visual.clientHeight, 110);
+        rectangle(visual.clientWidth, visual.clientHeight, 180);
+
+        particles.length = 0;
+        updateParticle(8, 17);
+        Composite.add(world, particles);
+        
+    } else if(window.innerWidth > 1000){
+        Composite.clear(world);
+
+        triangle(visual.clientWidth, visual.clientHeight, 170);
+        circle(visual.clientWidth, visual.clientHeight, 110);
+        cross(visual.clientWidth, visual.clientHeight, 150);
+        rectangle(visual.clientWidth, visual.clientHeight, 220);
+
+        particles.length = 0;
+        updateParticle(10, 20);
+        Composite.add(world, particles);
+        
     }
 
     Event.on(engine, 'collisionStart', (e) => {
@@ -131,7 +162,7 @@ export const visualBall = () => {
             bodyA.render.fillStyle = bodyB.render.fillStyle
         }
         if(bodyA.label == 'cross'){
-            cross.parts.forEach(x => {
+            bodyA.parent.parts.forEach(x => {
                 x.render.fillStyle = bodyB.render.fillStyle;
             })
         }
@@ -149,46 +180,55 @@ export const visualBall = () => {
             }
         })
     });
+
     function onResize(visual){
-        
+        let wh2 = window.innerWidth;
         render.canvas.width = window.innerWidth;
         render.canvas.height = visual.clientHeight;
-    
-        Matter.Body.setPosition(triA, Matter.Vector.create(visual.clientWidth * 0.8, visual.clientHeight * 0.38));
-        Matter.Body.setPosition(boxA, Matter.Vector.create(visual.clientWidth * 0.7, visual.clientHeight * 0.78));
+        
+        Event.on(render, 'afterRender', () => {
+            wh = window.innerWidth
+        });
 
-        Matter.Body.set(conA, 'pointA', { x: visual.clientWidth * 0.8, y: visual.clientHeight * 0.38 });
-        Matter.Body.set(conD, 'pointA', { x: visual.clientWidth * 0.3, y: visual.clientHeight * 0.4 });
-        Matter.Body.set(conC, 'pointA', { x: visual.clientWidth * 0.7, y: visual.clientHeight * 0.78 })
+        if(wh != wh2){
+            if(window.innerWidth <= 500){
+                Composite.clear(world);
 
-        if(visual.clientWidth <= 1000 && !once){
-            Matter.Body.scale(triA, 0.8, 0.8);
-            Matter.Body.scale(ballB, 0.8, 0.8);
-            Matter.Body.scale(boxA, 0.8, 0.8);
-            Matter.Body.scale(cross, 0.7, 0.7);
-            particles.forEach(x => {
-                Matter.Body.scale(x, 0.8, 0.8)
-            })
-            once = true
-        } else if(visual.clientWidth > 1000 && once){
-            Matter.Body.scale(triA, 1.2, 1.2);
-            Matter.Body.scale(ballB, 1.2, 1.2);
-            Matter.Body.scale(boxA, 1.2, 1.2);
-            Matter.Body.scale(cross, 1.3, 1.3);
-            particles.forEach(x => {
-                Matter.Body.scale(x, 1.2, 1.2)
-            })
-            once = false
+                triangle(visual.clientWidth, visual.clientHeight, 120);
+                circle(visual.clientWidth * 0.5, visual.clientHeight * 1.1, 70);
+                cross(visual.clientWidth, visual.clientHeight, 100);
+                rectangle(visual.clientWidth, visual.clientHeight, 150);
+
+                particles.length = 0;
+                updateParticle(6, 13);
+                Composite.add(world, particles);
+            } else if(window.innerWidth <= 1000){
+                
+                Composite.clear(world);
+
+                triangle(visual.clientWidth, visual.clientHeight, 140);
+                circle(visual.clientWidth, visual.clientHeight, 90);
+                cross(visual.clientWidth, visual.clientHeight, 110);
+                rectangle(visual.clientWidth, visual.clientHeight, 180);
+
+                particles.length = 0;
+                updateParticle(8, 17);
+                Composite.add(world, particles);
+                
+            } else if(window.innerWidth > 1000){
+                Composite.clear(world);
+
+                triangle(visual.clientWidth, visual.clientHeight, 170);
+                circle(visual.clientWidth, visual.clientHeight, 110);
+                cross(visual.clientWidth, visual.clientHeight, 150);
+                rectangle(visual.clientWidth, visual.clientHeight, 220);
+
+                particles.length = 0;
+                updateParticle(10, 20);
+                Composite.add(world, particles);
+                
+            }
         }
-
-        if(visual.clientWidth <= 500){
-            Matter.Body.setPosition(ballB, Matter.Vector.create(visual.clientWidth * 0.3, visual.clientHeight * 0.6));
-            Matter.Body.set(conB, 'pointA', { x: visual.clientWidth * 0.3, y: visual.clientHeight * 0.6 });
-        } else{
-            Matter.Body.setPosition(ballB, Matter.Vector.create(visual.clientWidth * 0.5, visual.clientHeight * 0.44));
-            Matter.Body.set(conB, 'pointA', { x: visual.clientWidth * 0.5, y: visual.clientHeight * 0.44 });
-        }
-
     }
 
     window.addEventListener('resize', () => onResize(visual))

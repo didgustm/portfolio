@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="navi">
+            <div class="navi fd--d4">
                 <button class="btn_prev"><img src="{navi}" alt="prev"></button>
                 <button class="btn_next"><img src="{navi}" alt="next"></button>
             </div>
