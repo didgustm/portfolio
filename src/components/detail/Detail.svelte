@@ -30,7 +30,7 @@
         viewImg.onload = () => {
             setTimeout(() => {
                 loading = false;
-            }, 400);
+            }, 300);
         };
     })
 </script>
@@ -50,7 +50,7 @@
     {/if}
 </div>
 {#if loading}
-<div class="loading" out:fade={{duration:200, delay:150}}>
+<div class="loading" out:fade={{duration:200, delay:50}}>
     <svg width="80px" height="80px" viewBox="0 0 80 80">
         <path stroke-width="10" stroke-linecap="round" fill="none" d="M40,10 A30,30 0 1,0 70,40"></path>
     </svg>

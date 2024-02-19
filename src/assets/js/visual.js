@@ -34,14 +34,19 @@ export const visualBall = () => {
 
     engine.gravity.y = 0.9;
     const staticOptions = {
-        restitution: 0.8,
+        restitution: 0.7,
         friction: 0,
         label: 'static'
     }
 
     // Triangle
     function triangle(w, h, width){
-        let triA = Bodies.polygon(w * 0.8, h * 0.38, 3, width, staticOptions),
+        let triA = Bodies.polygon(w * 0.8, h * 0.38, 3, width, {
+            restitution: 0.7,
+            friction: 0,
+            label: 'static',
+            chamfer: { radius: [10, 10, 10] }
+        }),
             conA = Constraint.create({ 
                 pointA: { x: w * 0.8, y: h * 0.38 },
                 bodyB: triA,
@@ -88,7 +93,13 @@ export const visualBall = () => {
     }
     // Rectangle
     function rectangle(w, h, size){
-        let boxA = Bodies.rectangle(w * 0.7, h * 0.78, size, size / 3, staticOptions),
+        let boxA = Bodies.rectangle(w * 0.7, h * 0.78, size, size / 3, {
+            restitution: 0.7,
+            friction: 0.05,
+            frictionStatic: 0.1,
+            label: 'static',
+            inertia: Infinity
+        }),
         conC = Constraint.create({ 
             pointA: { x: w * 0.7, y: h * 0.78 },
             bodyB: boxA,
@@ -97,7 +108,7 @@ export const visualBall = () => {
             stiffness: 0.05,
             render: {visible: false}
         });
-        Matter.Body.rotate(boxA, Math.PI / -8);
+        Matter.Body.rotate(boxA, Math.PI / -5);
         Composite.add(world, [ boxA, conC ]);
     }
     // Particles
@@ -124,7 +135,7 @@ export const visualBall = () => {
         rectangle(visual.clientWidth, visual.clientHeight, 150);
 
         particles.length = 0;
-        updateParticle(6, 13);
+        updateParticle(10, 13);
         Composite.add(world, particles);
     } else if(window.innerWidth <= 1000){
         
@@ -176,7 +187,7 @@ export const visualBall = () => {
                     visual.clientWidth * 0.4, visual.clientWidth * 0.82
                 );
                 var y = Common.random(-render.canvas.height, 0);
-                Matter.Body.setPosition(p, { x: x, y: y });
+                Matter.Body.setPosition(p, { x: x, y: -p.circleRadius });
             }
         })
     });
@@ -200,7 +211,7 @@ export const visualBall = () => {
                 rectangle(visual.clientWidth, visual.clientHeight, 150);
 
                 particles.length = 0;
-                updateParticle(6, 13);
+                updateParticle(10, 13);
                 Composite.add(world, particles);
             } else if(window.innerWidth <= 1000){
                 
