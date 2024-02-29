@@ -5,6 +5,7 @@ const metadata = {
   "caption": "공방. 소자본. 1인창업",
   "url": "https://leaderscpa.com/merchant/flowercake/",
   "category": "Etc",
+  "role": "My part - 50%",
   "device": "PC, Mobile",
   "size": "small"
 };

@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as o,i as a}from"./index.MQF-j6lW.js";const c={id:36,title:"CoreVac",caption:"반도체, 디스플레이 장비설계 및 제작",url:"https://www.corevac.com/",category:"Etc",role:"My part - 100%",device:"PC only",size:"small"};class i extends o{constructor(t){super(),a(this,t,null,null,e,{})}}export{i as default,c as metadata};

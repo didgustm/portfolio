@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as s}from"./index.MQF-j6lW.js";const i={id:44,title:"EV LABS",caption:"수익형 EV 재테크 사업",url:"https://leaderscpa.com/merchant/evlabs/",category:"Car",device:"PC, Mobile",size:"small"};class n extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{n as default,i as metadata};

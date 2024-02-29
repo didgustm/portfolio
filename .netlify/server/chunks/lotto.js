@@ -5,6 +5,7 @@ const metadata = {
   "caption": "로또 번호 무료 제작 서비스",
   "url": "https://lottofly.co.kr/m/",
   "category": "Etc",
+  "role": "My part - 100%",
   "device": "Moblie only",
   "size": "large"
 };

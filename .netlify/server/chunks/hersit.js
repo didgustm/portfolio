@@ -5,6 +5,7 @@ const metadata = {
   "caption": "인스타그램 마케팅 솔루션",
   "url": "https://leaderscpa.com/merchant/hersit/",
   "category": "Web",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "medium"
 };

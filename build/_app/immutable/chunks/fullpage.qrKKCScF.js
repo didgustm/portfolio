@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as l}from"./index.MQF-j6lW.js";const r={id:20,title:"Fullpage",caption:"Custom Code",url:"https://didgustm.github.io/myOnePage/",category:"Etc",role:"My part - 100%",device:"PC, Mobile",size:"small"};class u extends a{constructor(t){super(),l(this,t,null,null,e,{})}}export{u as default,r as metadata};

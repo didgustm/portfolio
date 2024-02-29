@@ -5,6 +5,7 @@ const metadata = {
   "caption": "국내 최대 인스타그램 광고실행사",
   "url": "https://leaderscpa.com/merchant/isearch/",
   "category": "Web",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };

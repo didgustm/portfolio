@@ -147,7 +147,7 @@ const Top = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.detailItem(detailItem);
   if ($$props.onClose === void 0 && $$bindings.onClose && onClose !== void 0)
     $$bindings.onClose(onClose);
-  return `<section class="subTop"><button class="buttons close" data-svelte-h="svelte-18ymkow"><img${add_attribute("src", close, 0)} alt="닫기"></button> <div class="inner"><p class="descript">${escape(detailItem.meta.caption)}</p> <h2 class="title"><div><p>${escape(detailItem.meta.title)}</p></div></h2> <a${add_attribute("href", detailItem.meta.url, 0)} class="url" target="_blank">${escape(detailItem.meta.url)}</a> <div class="category"><p>${escape(detailItem.meta.category)}</p> <span data-svelte-h="svelte-1j4g6zq">⋅</span> <p>${escape(detailItem.meta.device)}</p></div></div></section>`;
+  return `<section class="subTop"><button class="buttons close" data-svelte-h="svelte-18ymkow"><img${add_attribute("src", close, 0)} alt="닫기"></button> <div class="inner"><p class="descript">${escape(detailItem.meta.caption)}</p> <h2 class="title"><div><p>${escape(detailItem.meta.title)}</p></div></h2> <a${add_attribute("href", detailItem.meta.url, 0)} class="url" target="_blank">${escape(detailItem.meta.url)}</a> <div class="category"><p>${escape(detailItem.meta.role)}</p> <span data-svelte-h="svelte-1j4g6zq">⋅</span> <p>${escape(detailItem.meta.device)}</p></div></div></section>`;
 });
 const View = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { detailItem, src } = $$props;

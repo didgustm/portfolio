@@ -5,6 +5,7 @@ const metadata = {
   "caption": "정확하고 안전한 임플란트 식립",
   "url": "https://leaderscpa.com/merchant/coconut_implant/",
   "category": "Life",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };

@@ -17,7 +17,7 @@
         </h2>
         <a href="{detailItem.meta.url}" class="url" target="_blank">{detailItem.meta.url}</a>
         <div class="category">
-            <p>{detailItem.meta.category}</p>
+            <p>{detailItem.meta.role}</p>
             <span>&#8901;</span>
             <p>{detailItem.meta.device}</p>
         </div>

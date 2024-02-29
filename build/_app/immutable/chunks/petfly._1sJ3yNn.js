@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.JY9BNgAg.js";import{S as o,i as l}from"./index.MQF-j6lW.js";const r={id:43,title:"펫플라이",caption:"펫보험 견적 솔루션 플랫폼",url:"http://yhh2.dothome.co.kr/petfly/",category:"Life",device:"PC, Mobile",size:"small"};class n extends o{constructor(t){super(),l(this,t,null,null,e,{})}}export{n as default,r as metadata};

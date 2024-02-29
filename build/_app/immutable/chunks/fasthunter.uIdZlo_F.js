@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as s}from"./index.MQF-j6lW.js";const n={id:31,title:"패스트헌터",caption:"진짜 빠른 차량 출고 플랫폼",url:"https://fasthunter.co.kr",category:"Car",role:"My part - 40%",device:"Mobile only",size:"small"};class i extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{i as default,n as metadata};

@@ -1,1 +1,0 @@
-import{s as o}from"./scheduler.JY9BNgAg.js";import{S as e,i as s}from"./index.MQF-j6lW.js";const l={id:15,title:"Grid Sort",caption:"Custom Code",url:"http://yhh2.dothome.co.kr/sort/",category:"Etc",device:"PC, Mobile",size:"small"};class n extends e{constructor(t){super(),s(this,t,null,null,o,{})}}export{n as default,l as metadata};

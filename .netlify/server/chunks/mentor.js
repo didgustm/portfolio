@@ -5,6 +5,7 @@ const metadata = {
   "caption": "주식 리딩 서비스 제공 플랫폼",
   "url": "https://leaderscpa.com/merchant/mentordesk/",
   "category": "Stock",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "large"
 };

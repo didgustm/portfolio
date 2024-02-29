@@ -5,6 +5,7 @@ const metadata = {
   "caption": "무료 모바일 프로필 명함 제작",
   "url": "https://publing.co.kr/",
   "category": "Etc",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };

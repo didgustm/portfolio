@@ -5,6 +5,7 @@ const metadata = {
   "caption": "각종 자격증 자료 및 무료상담",
   "url": "https://leaderscpa.com/merchant/license162/",
   "category": "Etc",
+  "role": "My part - 100%",
   "device": "Responsive",
   "size": "small"
 };

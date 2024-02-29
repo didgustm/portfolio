@@ -5,6 +5,7 @@ const metadata = {
   "caption": "수입차 국산차 리스/렌트견적 서비스",
   "url": "https://leaderscpa.com/merchant/blacklabel/",
   "category": "Car",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "medium"
 };

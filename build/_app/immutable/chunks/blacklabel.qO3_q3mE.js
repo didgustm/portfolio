@@ -1,1 +1,0 @@
-import{s as t}from"./scheduler.JY9BNgAg.js";import{S as a,i as l}from"./index.MQF-j6lW.js";const r={id:38,title:"BLACK LABEL",caption:"수입차 국산차 리스/렌트견적 서비스",url:"https://leaderscpa.com/merchant/blacklabel/",category:"Car",device:"PC, Mobile",size:"medium"};class c extends a{constructor(e){super(),l(this,e,null,null,t,{})}}export{c as default,r as metadata};

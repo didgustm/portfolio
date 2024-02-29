@@ -5,6 +5,7 @@ const metadata = {
   "caption": "제주 단독주택 전문 브랜드",
   "url": "https://leaderscpa.com/merchant/jejuchanga/",
   "category": "Life",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };

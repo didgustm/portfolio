@@ -4,6 +4,7 @@ title: Calendar
 caption: svelte code
 url: https://didgustm.github.io/calendar/
 category: Etc
+role: My part - 100%
 device: PC only
 size: small
 ---

@@ -5,6 +5,7 @@ const metadata = {
   "caption": "진짜 빠른 차량 출고 플랫폼",
   "url": "https://fasthunter.co.kr",
   "category": "Car",
+  "role": "My part - 40%",
   "device": "Mobile only",
   "size": "small"
 };

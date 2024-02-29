@@ -5,6 +5,7 @@ const metadata = {
   "caption": "개인회생/파산 비공개 상담요청",
   "url": "https://lawadviser.co.kr/",
   "category": "Life",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };

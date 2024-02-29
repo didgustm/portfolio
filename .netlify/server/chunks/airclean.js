@@ -5,6 +5,7 @@ const metadata = {
   "caption": "에어컨 / 세탁기 청소 전문업체",
   "url": "https://8282airclean.com",
   "category": "Life",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "large"
 };

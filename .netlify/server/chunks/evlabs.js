@@ -5,6 +5,7 @@ const metadata = {
   "caption": "수익형 EV 재테크 사업",
   "url": "https://leaderscpa.com/merchant/evlabs/",
   "category": "Car",
+  "role": "My part - 60%",
   "device": "PC, Mobile",
   "size": "small"
 };

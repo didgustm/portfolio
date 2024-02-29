@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as s}from"./index.MQF-j6lW.js";const n={id:25,title:"Calendar",caption:"svelte code",url:"https://didgustm.github.io/calendar/",category:"Etc",device:"PC only",size:"small"};class r extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{r as default,n as metadata};

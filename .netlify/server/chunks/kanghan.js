@@ -5,6 +5,7 @@ const metadata = {
   "caption": "기본에 강한, 수익에 강한",
   "url": "https://leaderscpa.com/merchant/kanghan/",
   "category": "Stock",
+  "role": "My part - 100%",
   "device": "PC, Mobile",
   "size": "small"
 };
