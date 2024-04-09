@@ -4,10 +4,9 @@ const metadata = {
   "title": "CoreVac",
   "caption": "반도체, 디스플레이 장비설계 및 제작",
   "url": "https://www.corevac.com/",
-  "category": "Etc",
+  "type": "Website",
   "role": "My part - 100%",
-  "device": "PC only",
-  "size": "small"
+  "device": "PC only"
 };
 const Corevac = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

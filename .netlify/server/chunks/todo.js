@@ -4,10 +4,9 @@ const metadata = {
   "title": "Todo List",
   "caption": "svelte code",
   "url": "https://didgustm.github.io/todo_svelte/",
-  "category": "Etc",
+  "type": "Script",
   "role": "My part - 100%",
-  "device": "PC only",
-  "size": "small"
+  "device": "PC only"
 };
 const Todo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

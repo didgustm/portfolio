@@ -1,10 +1,11 @@
 <script>
     import '@scss/detail.scss'
     import { onMount } from 'svelte'
-    import { fade, fly } from 'svelte/transition';
+    import { fade, fly } from 'svelte/transition'
+    import Fa from 'svelte-fa'
+    import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
     import Top from '@comp/detail/Top.svelte'
     import View from '@comp/detail/View.svelte'
-    import arrow from '@img/up.png'
     import { views } from '@js/view';
 
 
@@ -30,7 +31,7 @@
         viewImg.onload = () => {
             setTimeout(() => {
                 loading = false;
-            }, 300);
+            }, 100);
         };
     })
 </script>
@@ -44,15 +45,15 @@
     <Top { detailItem } { onClose } />
     <View { detailItem } { src } />
     {#if scrollY > 300}
-    <button class="btn_top buttons" in:fade out:fade={{ duration:100 }} on:click={goTop}>
-        <img src="{ arrow }" alt="상단 바로가기">
+    <button class="btn_top" in:fade out:fade={{ duration:100 }} on:click={goTop}>
+        <svelte:component this={ Fa } icon={ faChevronUp } size="2x" />
     </button>
     {/if}
+    {#if loading}
+    <div class="loading" out:fade={{duration:100}}>
+        <svg width="80px" height="80px" viewBox="0 0 80 80">
+            <path stroke-width="10" stroke-linecap="round" fill="none" d="M40,10 A30,30 0 1,0 70,40"></path>
+        </svg>
+    </div>
+    {/if}
 </div>
-{#if loading}
-<div class="loading" out:fade={{duration:200, delay:50}}>
-    <svg width="80px" height="80px" viewBox="0 0 80 80">
-        <path stroke-width="10" stroke-linecap="round" fill="none" d="M40,10 A30,30 0 1,0 70,40"></path>
-    </svg>
-</div>
-{/if}

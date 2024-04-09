@@ -4,10 +4,9 @@ const metadata = {
   "title": "청개구리LABS",
   "caption": "당신의 인생역전 프로젝트",
   "url": "https://leaderscpa.com/merchant/chunginlabs3/",
-  "category": "Stock",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Chungin = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

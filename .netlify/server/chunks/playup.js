@@ -4,10 +4,9 @@ const metadata = {
   "title": "플레이업",
   "caption": "미디어타겟 기반 마케팅 플랫폼",
   "url": "https://playup.kr/publisher/",
-  "category": "Web",
+  "type": "Website",
   "role": "My part - 70%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Playup = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

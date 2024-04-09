@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as a,i as s}from"./index.ZHvNIqib.js";const l={id:12,title:"헐스아이티",caption:"인스타그램 마케팅 솔루션",url:"https://leaderscpa.com/merchant/hersit/",type:"Landing",role:"My part - 100%",device:"PC, Mobile"};class n extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{n as default,l as metadata};

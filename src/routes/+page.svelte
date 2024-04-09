@@ -1,14 +1,15 @@
 <script>
-    import Visual from "@comp/index/Visual.svelte"
-    import About from "@comp/index/About.svelte"
-    import Portfolio from "@comp/index/Portfolio.svelte"
-    import Contact from "@comp/index/Contact.svelte"
-    import Detail from "@comp/detail/Detail.svelte"
-    import { register } from 'swiper/element/bundle';
+    import { onMount } from 'svelte'
+    import Quick from '@comp/common/Quick.svelte'
+    import Visual from '@comp/visual/Visual.svelte'
+    import About from '@comp/about/About.svelte'
+    import Portfolio from '@comp/portfolio/Portfolio.svelte'
+    import Contact from '@comp/contact/Contact.svelte'
+    import Detail from '@comp/detail/Detail.svelte'
+    import { scroll } from '@js/scroll.js';
 
-    export let data;
+    export let data
 
-    register();
     let detailItem = data.lists[0], show = false;
 
     if(location.hash != ''){
@@ -30,16 +31,20 @@
 		if(location.hash != '') onClick(detailItem);
 		else onClose();
 	}
+
+    onMount(() => scroll())
 </script>
 
 <svelte:window
     on:hashchange={back(detailItem)}
 />
 
-<Visual />
-<About />
-<Portfolio { data } { onClick }  />
-<Contact />
+<div class="pin">
+    <Visual />
+    <About />
+    <Portfolio { data } { onClick } />
+    <Contact />
+</div>
 
 {#if show}
 <Detail { detailItem } { onClose } />

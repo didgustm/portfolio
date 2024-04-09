@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as a,i as l}from"./index.ZHvNIqib.js";const n={id:40,title:"골드클래스",caption:"고가차량 오토리스, 장기렌트",url:"http://gold.carfly.me/",type:"Landing",role:"My part - 60%",device:"PC, Mobile"};class r extends a{constructor(t){super(),l(this,t,null,null,e,{})}}export{r as default,n as metadata};

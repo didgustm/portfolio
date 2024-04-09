@@ -1,38 +1,71 @@
 @use './common/variables' as var;
 
 .contact{
-    .contents{
+    top:auto !important;
+    bottom:0;
+    height:auto !important;
+    background:var.$dblue;
+    color:var.$light;
+    border-radius:5rem 5rem 0 0;
+    transform:translateY(101%);
+    z-index:-1;
+    .inner{
+        @include var.flex(space-between);
+        padding-top:10rem
+    }
+    .list{
         display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:3rem 0
-    }
-    .icon{
-        display:block;
-        img{
-            filter: brightness(0) saturate(100%) invert(45%) sepia(75%) saturate(4614%) hue-rotate(348deg) brightness(93%) contrast(95%);
+        gap:8rem;
+        li{
+            @include var.flex(flex-start, center);
+            gap:5rem
         }
-    }
-    dt{
-        font-size:2.4rem;
-        @include var.fontWeight(500);
-        margin:1.5rem 0 1rem
-    }
-    dd{
-        font-size:1.8rem;
-        line-height:1.35;
-        word-break:break-all;
-        @include var.fontWeight(300);
-        a:hover{
-            color:var.$theme;
-            text-decoration:underline
-        }
-    }
-    @include var.custom(500px){
         dt{
-            font-size:3rem
+            @include var.setFont(2.4rem, 500);
+            margin-bottom:1.5rem
         }
-        .icon{
-            width:8rem
+        dd{
+            @include var.setFont(1.8rem, 300);
+            line-height:1.35;
+            word-break:break-all;
+            color:#b7b7b7;
+            a:hover{
+                color:var.$light;
+                text-decoration:underline
+            }
+        }
+    }
+
+    @include var.custom(var.$mobile){
+        .inner{
+            flex-direction:column;
+            justify-content:flex-start;
+            gap:7rem;
+            padding-top:7rem
+        }
+        .list{
+            gap:5rem
+        }
+    }
+    @media(orientation:landscape){
+        .inner{
+            justify-content:space-between;
+            flex-direction:row;
+            padding-top:5rem
+        }
+        .list{
+            width:55%;
+            gap:3rem;
+            li{
+                flex-wrap:nowrap;
+                gap:3rem
+            }
+            dt{
+                margin-bottom:1rem
+            }
+            .img{
+                font-size:1.4rem
+            }
         }
     }
 }

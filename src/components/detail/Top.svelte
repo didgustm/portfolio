@@ -1,12 +1,13 @@
 <script>
-    import close from '@img/close.png';
+    import Fa from 'svelte-fa'
+    import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
     export let detailItem, onClose;
 </script>
 
 <section class="subTop">
     <button class="buttons close" on:click={onClose}>
-        <img src="{ close }" alt="닫기">
+        <svelte:component this={ Fa } icon={ faXmark } size="3x" />
     </button>
     <div class="inner">
         <p class="descript">{detailItem.meta.caption}</p>

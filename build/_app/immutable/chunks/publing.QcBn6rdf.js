@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.JY9BNgAg.js";import{S as l,i as o}from"./index.MQF-j6lW.js";const n={id:13,title:"PUBLing",caption:"무료 모바일 프로필 명함 제작",url:"https://publing.co.kr/",category:"Etc",role:"My part - 100%",device:"PC, Mobile",size:"small"};class r extends l{constructor(t){super(),o(this,t,null,null,e,{})}}export{r as default,n as metadata};

@@ -4,10 +4,9 @@ const metadata = {
   "title": "Calendar",
   "caption": "svelte code",
   "url": "https://didgustm.github.io/calendar/",
-  "category": "Etc",
+  "type": "Script",
   "role": "My part - 100%",
-  "device": "PC only",
-  "size": "small"
+  "device": "PC only"
 };
 const Calendar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

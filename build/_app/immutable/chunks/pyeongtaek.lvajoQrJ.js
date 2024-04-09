@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as a,i as o}from"./index.ZHvNIqib.js";const r={id:16,title:"법무법인 평택",caption:"개인회생/파산 법률상담 서비스",url:"https://leaderscpa.com/merchant/pyeongtaek/",type:"Landing",role:"My part - 50%",device:"PC, Mobile"};class i extends a{constructor(t){super(),o(this,t,null,null,e,{})}}export{i as default,r as metadata};

@@ -4,10 +4,9 @@ const metadata = {
   "title": "네비게이션 임플란트",
   "caption": "정확하고 안전한 임플란트 식립",
   "url": "https://leaderscpa.com/merchant/coconut_implant/",
-  "category": "Life",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Implant = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

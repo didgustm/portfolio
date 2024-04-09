@@ -4,10 +4,9 @@ const metadata = {
   "title": "에이플라이",
   "caption": "장기렌트/오토리스 비교견적 플랫폼",
   "url": "https://afly.co.kr/",
-  "category": "Car",
+  "type": "Website",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Afly = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

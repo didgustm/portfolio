@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as o,i as a}from"./index.ZHvNIqib.js";const n={id:18,title:"자몽픽",caption:"플레이업 미디어 채널",url:"https://jamongpick.com/",type:"Website",role:"My part - 100%",device:"PC, Mobile"};class r extends o{constructor(t){super(),a(this,t,null,null,e,{})}}export{r as default,n as metadata};

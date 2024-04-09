@@ -4,10 +4,9 @@ const metadata = {
   "title": "PUBLing",
   "caption": "무료 모바일 프로필 명함 제작",
   "url": "https://publing.co.kr/",
-  "category": "Etc",
+  "type": "Website",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Publing = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

@@ -4,10 +4,9 @@ const metadata = {
   "title": "Template01",
   "caption": "랜딩페이지 PC 버전 템플릿",
   "url": "http://didgustm12.dothome.co.kr/template01/",
-  "category": "Web",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC only",
-  "size": "small"
+  "device": "PC only"
 };
 const Template01 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

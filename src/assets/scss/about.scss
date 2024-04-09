@@ -1,170 +1,218 @@
 @use './common/variables' as var;
 
 .about{
-    font-size:1.8rem;
-    .profile{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        padding-top:2rem;
-        .name{
-            @include var.fontWeight(500)
+    background:var.$dblue;
+    perspective:1280px;
+    opacity:0;
+    color:var.$light;
+    z-index:-1;
+    canvas{
+        @include var.absDefault();
+        z-index:-1
+    }
+    .inner{
+        position:relative;
+        @include var.flexDefault();
+        padding-bottom:10rem
+    }
+    .text_bg{
+        position:absolute;
+        bottom:-5rem;
+        left:50%;
+        @include var.setFont(23rem, 900);
+        opacity:0.05;
+        transform:translateX(-50%);
+        z-index:-1;
+        &.text01{
+            color:var.$light;
         }
-        .date{
-            color:#b7b7b7
+        &.text02{
+            color:var.$dblue
         }
     }
+    .date{
+        color:#b7b7b7
+    }
+    .name{
+        @include var.fontWeight(500)
+    }
     .info{
+        position:relative;
         @include var.flex(flex-start, center);
-        gap:2rem; 
+        gap:2rem;
+        padding-top:3rem;
         .image{
             @include var.circle(7rem);
-            overflow:hidden
+            overflow:hidden;
+            background:var.$dark
         }
+    }
+    .barbaB{
+        position:absolute;
+        bottom:0;
+        left:0;
+        @include var.circle(7rem);
+        transform:scale(45);
+        background:var.$dblue;
+        z-index:3
+    }
+    .right{
+        position:relative
     }
     .career{
         position:relative;
-        &::after{
+        .line{
             @include var.pseudo(1px, auto);
-            left:0.4rem;
-            top:5.8rem;
+            top:1rem;
             bottom:1rem;
-            background:#d8d8d8;
+            left:0.35rem;
+            background:#b7b7b7;
+            transform:scaleY(0);
+            transform-origin:50% 0;
             z-index:-1
         }
         li{
             @include var.flex(flex-start, center);
             gap:3rem;
-            padding-top:5rem
+            transform:translateY(10rem);
+            opacity:0;
+            &:nth-child(n+2){
+                padding-top:7rem
+            }
         }
         .dot{
             @include var.circle(0.8rem);
-            background:var.$theme
+            background:#b7b7b7
         }
         .date{
-            min-width:150px
+            min-width:15rem
         }
     }
     .skills{
-        display:grid;
-        grid-template-columns:repeat(4, 1fr);
-        gap:2rem;
-        perspective:1920px;
-        .box{
-            @include var.flex(space-between, flex-end, wrap, column);
+        @include var.flex(space-between, stretch, row, nowrap);
+        gap:3rem;
+        position:absolute;
+        top:50%;
+        right:0;
+        transform:translateY(-50%);
+        perspective:1280px;
+        li{
+            --dot:#2F4858;
             position:relative;
-            padding:5rem 3rem
+            @include var.flex(space-between, flex-start, wrap, column);
+            min-width:30rem;
+            padding:5rem 4rem 3rem;
+            background:#fff;
+            border:1px solid var.$dblue;
+            opacity:0;
+            transform:rotateY(90deg);
+            &:nth-child(even){
+                right:0;
+                transform:rotateY(-90deg)
+            }
+            &.dark{
+                --dot:#fff;
+                background:var.$dblue;
+                color:#fff;
+            }
         }
-        dl{
-            width:100%
+        dt{
+            @include var.setFont(2.4rem, 600);
+            padding-bottom:1rem
         }
         dd{
             line-height:30px;
             @include var.fontWeight(300)
         }
-        dt{
-            font-size:2.6rem;
-            @include var.fontWeight(600);
-            margin-bottom:4rem
-        }
-        .box:nth-child(odd){
-            background:var.$theme;
-            color:#fff;
-            .icons{
-                .dot{
-                    opacity:0.15
-                }
-                img{
-                    filter:brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(7500%) hue-rotate(224deg) brightness(109%) contrast(105%);
-                }
-            }
-        }
-        .box:nth-child(even){
-            background:#fff;
-            @include var.border(#d8d8d8);
-            dd{
-                color:#666
-            }
-        }
-        .icons{
+        .icon{
             position:relative;
-            z-index:1;
-            .dot{
-                position:absolute;
-                top:-2rem;
-                left:-3rem;
-                @include var.circle(7rem);
-                background:#ffeeea;
-                z-index:-1
-            }
-            img{
-                width:6.4rem;
-                max-width:none;
-                filter:brightness(0) saturate(100%) invert(14%) sepia(0%) saturate(3%) hue-rotate(154deg) brightness(104%) contrast(97%)
-            }
+            @include var.flex(flex-end);
+            width:100%;
+            margin-top:4rem
+        }
+        .dot{
+            position:absolute;
+            top:-2rem;
+            right:2rem;
+            @include var.circle(5rem);
+            background:var(--dot);
+            opacity:0.15
         }
     }
-    @include var.custom(1000px){
-        .profile{
-            align-items:flex-start
-        }
-        .info{
-            padding-top:4rem
-        }
-        .career{
-            li{
-                gap:2rem 3rem
-            }
-            .name{
-                width:100%;
-                padding-left:3.68rem
-            }
-        }
+
+    @include var.custom(1200px){
         .skills{
-            .box{
-                padding-bottom:3rem
-            }    
-            dt{
-                margin-bottom:2rem
+            li{
+                min-width:27rem
             }
         }
     }
     @include var.custom(var.$mobile){
-        .profile{
-            grid-template-columns:1fr
+        .inner{
+            @include var.flex(center, flex-start, wrap, column);
+            gap:5rem;
+            padding-bottom:0
+        }
+        .text_bg{
+            bottom:-3rem;
+            font-size:18rem
+        }
+        .right{
+            width:100%;
+            height:40%;
         }
         .career{
+            margin-top:4rem;
+            transform:translateY(20%)
+        }
+        .skills{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:4rem;
+            top:0;
+            left:0;
+            transform:translateY(0);
             li{
-                gap:3rem
+                min-width:auto;
+                padding:4rem
             }
-            .date{
-                min-width:auto
-            }
-            .name{
-                width:auto;
-                padding-left:0
+        }
+    }
+    @include var.custom(640px){
+        font-size:2.4rem;
+        .career{
+            li{
+                gap:2rem
             }
         }
         .skills{
-            grid-template-columns:1fr 1fr;
-            .box{
-                padding-bottom:2rem;
-                padding-top:4rem;
-                &:nth-child(3){
-                    order:1
-                }
+            dt{
+                font-size:3rem;
+                padding-bottom:2rem
             }
             dd{
                 line-height:1.7
             }
         }
     }
-    @include var.custom(500px){
-        font-size:2.4rem;
-        .skills{
-            gap:2rem 3rem
+    @media(orientation:landscape){
+        .inner{
+            gap:3rem;
+            padding-bottom:5rem
         }
-    }
-    @include var.custom(320px){
-        font-size:2.2rem
+        .info{
+            padding-top:1rem
+        }
+        .career{
+            margin-top:0
+        }
+        .skills{
+            li{
+                padding:3rem 3rem 1rem
+            }
+            .icon{
+                margin-top:0
+            }
+        }
     }
 }

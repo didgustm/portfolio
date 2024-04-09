@@ -4,10 +4,9 @@ const metadata = {
   "title": "이사방",
   "caption": "모든 이사를 완벽하게!",
   "url": "https://leaderscpa.com/merchant/isabang/",
-  "category": "Life",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Isabang = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

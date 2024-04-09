@@ -6,9 +6,15 @@
     left:0;
     bottom:0;
     right:0;
-    background:#fff;
+    background:var.$light;
     overflow:auto;
     z-index:100;
+    .inner{
+        padding:{
+            top:10rem;
+            bottom:10rem
+        }
+    }
     .close{
         position:absolute;
         top:3rem;
@@ -57,29 +63,28 @@
     }
     .view{
         position:relative;
-        background:#fff;
         padding:0 1.6rem;
         z-index:2;
         .inner{
             width:100%;
             max-width:none;
             border-radius:3rem 3rem 0 0;
-            background:#f7f7f7
+            background:#fff
         }
         .view_img{
             max-width:1920px;
             padding:0 10rem;
             text-align:center;
             margin:0 auto;
-            // opacity:0;
-            // transform:translateY(5rem);
-            // animation:from-bottom-fade 0.8s ease 0.6s forwards
         }
     }
     .btn_top{
         position:fixed;
         bottom:1rem;
         right:2rem;
+        @include var.circle(5rem);
+        background:var.$dark;
+        color:#fff;
         z-index:3;
         &::before{
             transform:scale(1);
@@ -125,6 +130,11 @@
         }
     }
     @include var.custom(500px){
+        .close{
+            top:1rem;
+            right:1rem;
+            font-size:2.4rem
+        }
         .descript{
             font-size:2.4rem
         }
@@ -136,6 +146,10 @@
         }
         .category{
             font-size:1.8rem
+        }
+        .btn_top{
+            width:7rem;
+            height:7rem
         }
     }
 }

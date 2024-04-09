@@ -1,27 +1,171 @@
 @use './common/variables' as var;
 
 .portfolio{
-    background:#f3f3f3;
-    .top{
-        @include var.flex(space-between, flex-end)
+    background:var.$light;
+    perspective:1280px;
+    opacity:0;
+    z-index:-1;
+    .inner{
+        @include var.flex(center, stretch, wrap, column);
+        gap:8rem;
+        transform:rotateX(45deg);
+        opacity:0
     }
-    .navi{
-        @include var.flex(flex-end, center);
-        gap:2rem;
-        filter:brightness(0) saturate(100%) invert(45%) sepia(75%) saturate(4614%) hue-rotate(348deg) brightness(93%) contrast(95%);
-        .btn_prev{
-            transform:rotate(0.5turn)
+    .grid{
+        width:100%;
+        overflow:visible
+    }
+    swiper-container{
+        &::part(container){
+            overflow:visible
         }
-        .swiper-button-disabled{
-            opacity:0.3
+        &::part(scrollbar){
+            --swiper-scrollbar-drag-bg-color:#2F4858;
+            left:0;
+            right:0;
+            bottom:-5rem;
+            width:100%
         }
     }
-    @import './grid.scss';
-    @include var.custom(400px){
-        .navi{
-            img{
-                width:80%
+    swiper-slide{
+        width:31.8rem
+    }
+    .box{
+        position:relative;
+        width:100%;
+        height:100%;
+        min-height:30rem;
+        background:var(--bg, #fff);
+        border-radius:2rem;
+        overflow:hidden;
+        &.box9{
+            --bg:#4646fb;
+            color:#fff
+        }
+        &.box13{
+            --bg:#eaeae8
+        }
+        &.box18{
+            --bg:#d5defd
+        }
+        &.box23{
+            --bg:#f6d1d8
+        }
+        &.box29{
+            --bg:#ffc1ce
+        }
+        &.box31{
+            --bg:#0793b4;
+            color:#fff
+        }
+        &.box40{
+            --bg:#006cfb;
+            color:#fff
+        }
+        &.box46{
+            --bg:#cedffd
+        }
+        &:hover{
+            .site_info{
+                color:#fff
             }
+            .name{
+                transform:translateY(-3.2rem)
+            }
+            .hide_txt{
+                opacity:1
+            }
+            .bg{
+                opacity:1
+            }
+        }
+        .img{
+            @include var.flex(center, center);
+            min-height:22.2rem;
+            img{
+                width:100%;
+                height:100%;
+                object-fit:cover
+            }
+        }
+        .site_info{
+            position:relative;
+            @include var.flexDefault();
+            padding:2rem 3rem;
+            @include var.setFont(1.4rem, 300);
+            transition:transform 0.4s;
+            z-index:1
+        }
+        .name{
+            @include var.setFont(2rem, 500);
+            transition:transform 0.4s
+        }
+        .coment{
+            bottom:8rem
+        }
+        .hide_txt{
+            position:absolute;
+            opacity:0;
+            transition:opacity 0.4s;
+        }
+        .bg{
+            @include var.absDefault();
+            right:0;
+            bottom:0;
+            background:rgba(0,0,0,.5);
+            opacity:0;
+            transition:opacity 0.4s
+        }
+    }
+
+    @include var.custom(var.$tablet){
+        .box{
+            .coment{
+                bottom:5rem;
+                opacity:1
+            }
+            &:hover{
+                .site_info{
+                    color:inherit
+                }
+                .name{
+                    transform:translateY(0)
+                }
+                .type{
+                    opacity:0
+                }
+                .bg{
+                    opacity:0
+                }
+            }
+        }
+    }
+    @include var.custom(500px){
+        swiper-container{
+            height:82vw
+        }
+        .box{
+            .name{
+                font-size:2.8rem
+            }
+            .coment{
+                bottom:auto;
+                top:-1rem;
+                font-size:1.8rem
+            }
+        }
+    }
+    @include var.custom(400px){
+        swiper-container{
+            height:328px
+        }
+        .box{
+            @include var.flex(space-evenly, stretch, wrap, column)
+        }
+    }
+    @media(orientation:landscape){
+        .inner{
+            gap:4rem
         }
     }
 }

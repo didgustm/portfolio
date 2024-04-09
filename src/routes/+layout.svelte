@@ -3,14 +3,14 @@
     import { onMount } from 'svelte'
     import { gsap } from 'gsap'
     import { ScrollTrigger } from 'gsap/ScrollTrigger'
+    import ScrollToPlugin from 'gsap/ScrollToPlugin'
     import Lenis from '@studio-freight/lenis'
     import '@scss/common/common.scss'
-    import Header from '@comp/common/Header.svelte'
-    import Footer from '@comp/common/Footer.svelte';
+    import Quick from '@comp/quick/Quick.svelte';
 
-    let app, isMobile = window.matchMedia('(pointer:coarse)').matches;
+    let app, isMobile = window.matchMedia('(pointer:coarse)').matches, w = window.innerWidth;
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     // Lenis
     const lenis = new Lenis({
@@ -24,44 +24,32 @@
     });
     gsap.ticker.lagSmoothing(0);
 
-    const toAnchor = (target, margin) => {
-        !isMobile?
-        lenis.scrollTo(`.${target}`, { offset: -document.querySelector('.header').offsetHeight }):
-        window.scrollTo({
-            top: document.querySelector(`.${target}`).offsetTop - document.querySelector('.header').offsetHeight, 
-            behavior: 'smooth'
+    const toAnchor = (idx) => {
+        gsap.to(window, { scrollTo: innerHeight * idx, duration:1 })
+    }
+
+    const svgTextAlign = () => {
+        const dy = document.querySelector('.main_tit tspan').getBoundingClientRect().height;
+        document.querySelectorAll('.sketch tspan').forEach((z, j) => {
+            if(j % 3 > 0){
+                z.setAttribute('dy', dy - 10)
+            } else{
+                z.setAttribute('dy', -dy - 10)
+            }
         })
     }
     
     const onResize = () => {
+        svgTextAlign();
         if(isMobile){
             lenis.destroy()
         }
     }
 
     onMount(() => {
-        const header = document.querySelector('.header'),
-                    aos = document.querySelectorAll('.aos');
-        ScrollTrigger.create({
-            trigger: app,
-            onUpdate () {
-                lenis.actualScroll > 10? header.classList.add('active'): header.classList.remove('active');
-            }
-        });
+        svgTextAlign();
         if(isMobile){
             lenis.destroy()
-        }
-        if(typeof IntersectionObserver !== undefined){
-            const rootMargin = `${-50}px`;
-            const io = new IntersectionObserver((entries, ob) => {
-                entries.forEach(entry => {
-                    if(!entry.isIntersecting && entry.boundingClientRect.y > 0) return;
-                    const { target } = entry;
-                    target.classList.add('active');
-                    ob.unobserve(target)
-                })
-            }, { rootMargin });
-            aos.forEach(x => io.observe(x));
         }
     });
 </script>
@@ -71,12 +59,12 @@
 </svelte:head>
 <svelte:window 
     on:resize={onResize}
+    bind:innerWidth={ w }
 />
 
 <div id="app" bind:this={ app }>
-    <Header { toAnchor } />
+    <Quick { w } { toAnchor } />
     <main in:fade={{duration:200, delay:150}}>
         <slot />
     </main>
-    <Footer />
 </div>

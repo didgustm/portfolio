@@ -4,10 +4,9 @@ const metadata = {
   "title": "24플라이",
   "caption": "가장 효율적인 이사 비교견적",
   "url": "https://24fly.me/",
-  "category": "Life",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "medium"
+  "device": "PC, Mobile"
 };
 const _24fly = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

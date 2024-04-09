@@ -118,7 +118,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="ko">\n	<head>\n		<meta charset="utf-8" />\n        <link rel="icon" sizes="16x16" type="image/svg+xml" href="' + assets2 + '/favicon.svg" />\n        <link rel="icon" sizes="32x32" type="image/svg+xml" href="' + assets2 + '/favicon.svg" />\n        <link rel="apple-touch-icon" sizes="180x180" type="image/svg+xml" href="' + assets2 + '/favicon.svg">\n		<link rel="icon" href="' + assets2 + '/favicon.svg" />\n        <meta name="theme-color" content="#E94823" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\r\n<html lang="ko">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n        <link rel="icon" sizes="16x16" type="image/svg+xml" href="' + assets2 + '/favicon.svg" />\r\n        <link rel="icon" sizes="32x32" type="image/svg+xml" href="' + assets2 + '/favicon.svg" />\r\n        <link rel="apple-touch-icon" sizes="180x180" type="image/svg+xml" href="' + assets2 + '/favicon.svg">\r\n		<link rel="icon" href="' + assets2 + '/favicon.svg" />\r\n        <meta name="theme-color" content="#f3f7fb" />\r\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n		' + head + '\r\n	</head>\r\n	<body data-sveltekit-preload-data="hover">\r\n		<div style="display: contents">' + body + "</div>\r\n	</body>\r\n</html>\r\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -190,7 +190,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "hh1dar"
+  version_hash: "f6haxh"
 };
 function get_hooks() {
   return {};

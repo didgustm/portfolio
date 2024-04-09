@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as i,i as o}from"./index.ZHvNIqib.js";const p={id:14,title:"Swiper",caption:"Custom Code",url:"https://didgustm.github.io/mySwiper/",type:"Script",role:"My part - 100%",device:"PC only"};class l extends i{constructor(t){super(),o(this,t,null,null,e,{})}}export{l as default,p as metadata};

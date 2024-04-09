@@ -4,10 +4,9 @@ const metadata = {
   "title": "강한투자클럽",
   "caption": "기본에 강한, 수익에 강한",
   "url": "https://leaderscpa.com/merchant/kanghan/",
-  "category": "Stock",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Kanghan = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

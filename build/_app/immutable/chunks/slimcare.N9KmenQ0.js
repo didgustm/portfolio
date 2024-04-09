@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.JY9BNgAg.js";import{S as a,i as l}from"./index.MQF-j6lW.js";const r={id:41,title:"깨GO빼GO",caption:"숙취와 체지방 걱정을 한병으로",url:"http://slimcare.playup.kr/",category:"Life",role:"My part - 60%",device:"PC, Mobile",size:"small"};class n extends a{constructor(t){super(),l(this,t,null,null,e,{})}}export{n as default,r as metadata};

@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as s,i as a}from"./index.ZHvNIqib.js";const p={id:17,title:"플레이업",caption:"미디어타겟 기반 마케팅 플랫폼",url:"https://playup.kr/publisher/",type:"Website",role:"My part - 70%",device:"PC, Mobile"};class r extends s{constructor(t){super(),a(this,t,null,null,e,{})}}export{r as default,p as metadata};

@@ -4,10 +4,9 @@ const metadata = {
   "title": "메이크플라이",
   "caption": "성공적인 주식투자 플랫폼",
   "url": "https://makefly.co.kr/",
-  "category": "Stock",
+  "type": "Website",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "medium"
+  "device": "PC, Mobile"
 };
 const Makefly = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

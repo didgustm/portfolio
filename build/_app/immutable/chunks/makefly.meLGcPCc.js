@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as a,i as o}from"./index.ZHvNIqib.js";const r={id:6,title:"메이크플라이",caption:"성공적인 주식투자 플랫폼",url:"https://makefly.co.kr/",type:"Website",role:"My part - 100%",device:"PC, Mobile"};class n extends a{constructor(t){super(),o(this,t,null,null,e,{})}}export{n as default,r as metadata};

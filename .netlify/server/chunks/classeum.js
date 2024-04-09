@@ -4,10 +4,9 @@ const metadata = {
   "title": "더 클라세움",
   "caption": "세계 최초 대마 엑소좀 특허",
   "url": "http://classeum.leaderscpa.com/",
-  "category": "Life",
+  "type": "Website",
   "role": "My part - 40%",
-  "device": "PC, Mobile",
-  "size": "small"
+  "device": "PC, Mobile"
 };
 const Classeum = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

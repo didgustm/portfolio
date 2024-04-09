@@ -1,0 +1,1 @@
+import{s as t}from"./scheduler.N1zoEepN.js";import{S as s,i as a}from"./index.ZHvNIqib.js";const l={id:19,title:"라이센스",caption:"각종 자격증 자료 및 무료상담",url:"https://leaderscpa.com/merchant/license162/",type:"Landing",role:"My part - 100%",device:"Responsive"};class r extends s{constructor(e){super(),a(this,e,null,null,t,{})}}export{r as default,l as metadata};

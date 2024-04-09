@@ -1,0 +1,1 @@
+import{s as e}from"./scheduler.N1zoEepN.js";import{S as a,i as l}from"./index.ZHvNIqib.js";const s={id:41,title:"깨GO빼GO",caption:"숙취와 체지방 걱정을 한병으로",url:"http://slimcare.playup.kr/",type:"Landing",role:"My part - 60%",device:"PC, Mobile"};class n extends a{constructor(t){super(),l(this,t,null,null,e,{})}}export{n as default,s as metadata};

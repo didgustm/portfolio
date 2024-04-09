@@ -4,10 +4,9 @@ const metadata = {
   "title": "BLACK LABEL",
   "caption": "수입차 국산차 리스/렌트견적 서비스",
   "url": "https://leaderscpa.com/merchant/blacklabel/",
-  "category": "Car",
+  "type": "Landing",
   "role": "My part - 100%",
-  "device": "PC, Mobile",
-  "size": "medium"
+  "device": "PC, Mobile"
 };
 const Blacklabel = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;

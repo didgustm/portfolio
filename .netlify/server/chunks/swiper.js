@@ -4,10 +4,9 @@ const metadata = {
   "title": "Swiper",
   "caption": "Custom Code",
   "url": "https://didgustm.github.io/mySwiper/",
-  "category": "Etc",
+  "type": "Script",
   "role": "My part - 100%",
-  "device": "PC only",
-  "size": "small"
+  "device": "PC only"
 };
 const Swiper = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return ``;
